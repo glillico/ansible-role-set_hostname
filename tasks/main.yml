@@ -1,0 +1,40 @@
+---
+# tasks file for ansible-role-set_hostname
+
+- name: Set the current MAC address for primary network interface.
+  set_fact:
+    server_mac_address: "{{ hostvars[inventory_hostname].ansible_default_ipv4.macaddress }}"
+
+- name: Set Hostname based on MAC address.
+  set_fact:
+    server_hostname: "{{ mac_address_mapping[server_mac_address].name }}"
+
+- name: Setup Required Files RedHat based servers.
+  template:
+    src: "templates/etc/{{ item.template }}"
+    dest: "{{ item.dest }}"
+    owner: root
+    group: root
+    mode: 0644
+  with_items:
+    - { template: hostname-RedHat.j2, dest: /etc/hostname }
+    - { template: hosts.j2, dest: /etc/hosts }
+  when:
+    - ansible_os_family == 'RedHat'
+  notify:
+    - Update hostname for RedHat based servers
+
+- name: Setup Required Files Debian based servers.
+  template:
+    src: "templates/etc/{{ item.template }}"
+    dest: "{{ item.dest }}"
+    owner: root
+    group: root
+    mode: 0644
+  with_items:
+    - { template: hostname-Debian.j2, dest: /etc/hostname }
+    - { template: hosts.j2, dest: /etc/hosts }
+  when:
+    - ansible_os_family == 'Debian'
+  notify:
+    - Update hostname for Debian based servers

@@ -1,0 +1,11 @@
+---
+# defaults file for ansible-role-set_hostname
+
+# Mapping of hardware MAC address to hostname
+mac_address_mapping:
+  "08:00:27:85:c5:3b":
+    name: debian10.test
+  "08:00:27:b4:9b:93":
+    name: centos7.test
+  "08:00:27:e3:7f:c0":
+    name: centos8.test
