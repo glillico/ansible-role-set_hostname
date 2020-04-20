@@ -12,13 +12,15 @@ None.
 
 Required the MAC addresson the primary network interface and the desired hostname to be entered.
 
-mac_address_mapping:
+```
+  mac_address_mapping:
   "00:50:56:e4:3b:74":
     name: centos7.test
   "00:50:56:13:3f:c6":
     name: centos8.test
   "00:50:56:55:f5:d8":
     name: debian10.test
+```
 
 This means that a server with the primary network interface mac address set to `00:50:56:e4:3b:74` would get its hostname set to `centos7.test`.
 
