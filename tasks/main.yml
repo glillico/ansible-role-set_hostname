@@ -9,7 +9,7 @@
   set_fact:
     server_hostname: "{{ mac_address_mapping[server_mac_address].name }}"
 
-- name: Setup Required Files RedHat based servers.
+- name: Setup required files.
   template:
     src: "templates/etc/{{ item.template }}"
     dest: "{{ item.dest }}"
@@ -17,24 +17,7 @@
     group: root
     mode: 0644
   with_items:
-    - { template: hostname-RedHat.j2, dest: /etc/hostname }
+    - { template: "hostname-{{ ansible_os_family }}.j2", dest: /etc/hostname }
     - { template: hosts.j2, dest: /etc/hosts }
-  when:
-    - ansible_os_family == 'RedHat'
   notify:
-    - Update hostname for RedHat based servers
-
-- name: Setup Required Files Debian based servers.
-  template:
-    src: "templates/etc/{{ item.template }}"
-    dest: "{{ item.dest }}"
-    owner: root
-    group: root
-    mode: 0644
-  with_items:
-    - { template: hostname-Debian.j2, dest: /etc/hostname }
-    - { template: hosts.j2, dest: /etc/hosts }
-  when:
-    - ansible_os_family == 'Debian'
-  notify:
-    - Update hostname for Debian based servers
+    - Update hostname on {{ ansible_os_family }} based servers

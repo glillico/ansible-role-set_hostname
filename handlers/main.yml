@@ -5,12 +5,12 @@
 # name is specified in the vars/main.yml file.
 # Depending on what is requried the templates/etc/hostname.j2 file may need
 # changing
-- name: Update hostname for Debian based servers
+- name: Update hostname on Debian based servers
   command: "hostname {{ server_hostname.split('.')[0] }}"
 
 # Updates the hostname using the full host name & domain name as specified in
 # the vars/main.yml file.
 # Depending on what is requried the templates/etc/hostname.j2 file may need
 # changing
-- name: Update hostname for RedHat based servers
+- name: Update hostname on RedHat based servers
   command: "hostname {{ server_hostname }}"

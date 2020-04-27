@@ -3,9 +3,9 @@
 
 # Mapping of hardware MAC address to hostname
 mac_address_mapping:
-  "08:00:27:85:c5:3b":
+  "08:00:27:24:c0:9c":
     name: debian10.test
-  "08:00:27:b4:9b:93":
+  "08:00:27:a2:5e:aa":
     name: centos7.test
-  "08:00:27:e3:7f:c0":
+  "08:00:27:eb:b8:84":
     name: centos8.test
