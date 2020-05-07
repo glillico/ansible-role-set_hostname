@@ -1,5 +1,5 @@
 ---
-# defaults file for ansible-role-set_hostname
+# defaults file for set_hostname
 
 # Mapping of hardware MAC address to hostname
 mac_address_mapping:

@@ -1,5 +1,5 @@
 ---
-# handlers file for ansible-role-set_hostname
+# handlers file for set_hostname
 
 # Updates the hostname using just the host name regardless of wether a domain
 # name is specified in the vars/main.yml file.
