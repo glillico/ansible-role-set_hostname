@@ -1,4 +1,4 @@
-# ansible-role-set_hostname
+# Ansible Role : set_hostname
 
 This role set the servers hostname based on the MAC address of the primary network interface.
 
@@ -51,4 +51,4 @@ MIT
 
 ## Author Information
 
-This role was created in 2020 by Graham Lillico.
+This role was created in 2020 by Graham Lillico. (Inspired by [geerlingguy/raspberry-pi-dramble](https://github.com/geerlingguy/raspberry-pi-dramble)).
