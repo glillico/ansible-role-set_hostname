@@ -4,6 +4,32 @@
 - name: Verify
   hosts: all
   tasks:
-  - name: Example assertion
-    assert:
-      that: true
+    - name: Retrieve the file information for '/etc/hostname'.
+      stat:
+        path: /etc/hostname
+      register: remote_file
+
+    - name: Test that the '/etc/hostname' file was created correctly.
+      assert:
+        that:
+          - remote_file.stat.exists
+          - remote_file.stat.isreg
+          - remote_file.stat.path == '/etc/hostname'
+          - remote_file.stat.mode == '0644'
+          - remote_file.stat.pw_name == 'root'
+          - remote_file.stat.gr_name == 'root'
+
+    - name: Retrieve the file information for '/etc/hosts'.
+      stat:
+        path: /etc/hosts
+      register: remote_file
+
+    - name: Test that the '/etc/hosts' file was created correctly.
+      assert:
+        that:
+          - remote_file.stat.exists
+          - remote_file.stat.isreg
+          - remote_file.stat.path == '/etc/hosts'
+          - remote_file.stat.mode == '0644'
+          - remote_file.stat.pw_name == 'root'
+          - remote_file.stat.gr_name == 'root'
