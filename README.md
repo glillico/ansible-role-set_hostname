@@ -10,7 +10,7 @@ None.
 
 ### vars/main.yml
 
-Required the MAC addresson the primary network interface and the desired hostname to be entered.
+Requires the MAC address of the primary network interface and the desired hostname to be entered.
 
 ```
   mac_address_mapping:
