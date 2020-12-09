@@ -51,4 +51,4 @@ MIT
 
 ## Author Information
 
-This role was created in 2020 by Graham Lillico. (Inspired by [geerlingguy/raspberry-pi-dramble](https://github.com/geerlingguy/raspberry-pi-dramble)).
+Created in 2020 by Graham Lillico. (Inspired by [geerlingguy/raspberry-pi-dramble](https://github.com/geerlingguy/raspberry-pi-dramble)).
