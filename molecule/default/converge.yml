@@ -3,7 +3,5 @@
   hosts: all
   become: true
 
-  tasks:
-    - name: "Include ansible-role-set_hostname"
-      include_role:
-        name: "ansible-role-set_hostname"
+  roles:
+    - role: glillico.set_hostname
