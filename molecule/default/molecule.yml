@@ -7,29 +7,7 @@ driver:
     name: virtualbox
 platforms:
   - name: instance
-    box: geerlingguy/${MOLECULE_DISTRO:-centos7}
+    box: geerlingguy/${MOLECULE_DISTRO:-rockylinux8}
     pre_build_image: true
 provisioner:
   name: ansible
-verifier:
-  name: ansible
-lint: |
-  set -e
-  yamllint .
-  ansible-lint
-scenario:
-  test_sequence:
-    - lint
-    - cleanup
-    - destroy
-    - dependency
-    - syntax
-    - create
-    - prepare
-    - converge
-    - idempotence
-    - check
-    - side_effect
-    - verify
-    - cleanup
-    - destroy
